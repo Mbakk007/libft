@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-bakk <ael-bakk@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: motto <motto@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:54:38 by ael-bakk          #+#    #+#             */
-/*   Updated: 2025/11/10 18:45:16 by ael-bakk         ###   ########.fr       */
+/*   Updated: 2025/11/14 15:15:16 by motto            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	unsigned int	i;
 	unsigned int	j;

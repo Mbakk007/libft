@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: motto <motto@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 11:22:55 by ael-bakk          #+#    #+#             */
-/*   Updated: 2025/11/14 15:15:02 by motto            ###   ########.fr       */
+/*   Created: 2025/11/13 17:32:21 by ael-bakk          #+#    #+#             */
+/*   Updated: 2025/11/14 15:39:41 by motto            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned int	i;
-	unsigned int	j;
+	t_list	*new_lst;
+	t_list	*new_node;
 
-	i = 0;
-	j = 0;
-	while (src[j])
-		j++;
-	if (size == 0)
-		return (j);
-	while (src[i] && i < size - 1)
+	if (!lst || !f)
+		return (NULL);
+	new_lst = NULL;
+	new_node = NULL;
+	while (lst)
 	{
-		dest[i] = src[i];
-		i++;
+		new_node = ft_lstnew(f(lst->content));
+		if (!new_node)
+		{
+			ft_lstclear(&new_lst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_lst, new_node);
+		lst = lst->next;
 	}
-	dest[i] = '\0';
-	return (j);
+	return (new_lst);
 }

@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: motto <motto@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 11:22:55 by ael-bakk          #+#    #+#             */
-/*   Updated: 2025/11/14 15:15:02 by motto            ###   ########.fr       */
+/*   Created: 2025/11/13 12:24:50 by ael-bakk          #+#    #+#             */
+/*   Updated: 2025/11/13 18:09:40 by motto            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	unsigned int	i;
-	unsigned int	j;
+	t_list	*last;
 
-	i = 0;
-	j = 0;
-	while (src[j])
-		j++;
-	if (size == 0)
-		return (j);
-	while (src[i] && i < size - 1)
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
 	{
-		dest[i] = src[i];
-		i++;
+		*lst = new;
+		return ;
 	}
-	dest[i] = '\0';
-	return (j);
+	last = ft_lstlast(*lst);
+	last->next = new;
 }

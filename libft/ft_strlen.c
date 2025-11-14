@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-bakk <ael-bakk@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: motto <motto@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:17:53 by ael-bakk          #+#    #+#             */
-/*   Updated: 2025/11/11 12:40:52 by ael-bakk         ###   ########.fr       */
+/*   Updated: 2025/11/14 15:17:07 by motto            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')
