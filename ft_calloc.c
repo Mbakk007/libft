@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: motto <motto@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ael-bakk <ael-bakk@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 17:13:46 by ael-bakk          #+#    #+#             */
-/*   Updated: 2025/11/13 18:11:30 by motto            ###   ########.fr       */
+/*   Created: 2025/11/10 18:43:34 by ael-bakk          #+#    #+#             */
+/*   Updated: 2025/11/15 10:14:06 by ael-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_list	*tmp;
+	unsigned char	*tmp;
+	size_t			i;
 
-	tmp = lst;
-	while (tmp)
+	tmp = malloc(count * size);
+	if (!tmp)
+		return (NULL);
+	i = 0;
+	while (i < count * size)
 	{
-		f(tmp->content);
-		tmp = tmp->next;
+		tmp[i] = 0;
+		i++;
 	}
+	return (tmp);
 }
