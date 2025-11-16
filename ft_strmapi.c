@@ -6,7 +6,7 @@
 /*   By: ael-bakk <ael-bakk@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 12:09:51 by ael-bakk          #+#    #+#             */
-/*   Updated: 2025/11/12 12:27:00 by ael-bakk         ###   ########.fr       */
+/*   Updated: 2025/11/16 09:58:31 by ael-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,22 @@
 
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	unsigned int	i;
+	size_t			i;
 	char			*res;
+	size_t			len;
 
-	res = malloc((ft_strlen(s) + 1) * sizeof(char));
+	len = ft_strlen(s);
+	if (!s || !f)
+		return (NULL);
+	res = malloc((len + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
 	i = 0;
-	while (i < ft_strlen(s))
+	while (i < len)
 	{
-		res[i] = (*f)(i, s[i]);
+		res[i] = f(i, s[i]);
 		i++;
 	}
-	res[i] = 0;
+	res[i] = '\0';
 	return (res);
 }
